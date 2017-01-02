@@ -14,11 +14,13 @@ class artStore {
   @observable dcsChecked = false;
   @observable bdaChecked = false;
   @observable vlsChecked = false;
-
   @observable acsChecked = false;
+
   @observable ogpChecked = false;
   @observable perChecked = false;
   @observable watChecked = false;
+  @observable draChecked = false;
+  @observable phoChecked = false;
 
   @computed get filteredArt() {
     const matchesFilter = new RegExp(this.filter, 'i');
@@ -45,6 +47,34 @@ class artStore {
     } else if (this.bdaChecked == true) {
       artworkSeries = _.filter(artworkSorted, function(b) {
         return b.series === 'bda';
+      });
+    } else if (this.vlsChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'vls';
+      });
+    } else if (this.acsChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'acs';
+      });
+    } else if (this.ogpChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'ogp';
+      });
+    } else if (this.perChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'per';
+      });
+    } else if (this.watChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'wat';
+      });
+    } else if (this.draChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'dra';
+      });
+    } else if (this.phoChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'pho';
       });
     } else {
       artworkSeries = artworkSorted;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { observable } from 'mobx';
-import { observer, inject } from 'mobx-react';
+import { observer } from 'mobx-react';
 import Masonry from 'react-masonry-component';
 
 import Artwork from './Artwork';
@@ -14,84 +13,7 @@ var masonryOptions = {
 export default class AllArt extends React.Component {
 
   componentDidMount() {
-    console.log('before:', this.props.artwork.isLoading);
     this.props.artwork.loadArtwork();
-    console.log('artStore:', this.props.artwork.artlist);
-    console.log('after:', this.props.artwork.isLoading);
-  }
-
-  filter = (e) => {
-    this.props.artwork.filter = e.target.value;
-  }
-
-  toggleSorting = (e) => {
-    console.log(e.target.value);
-    const artwork = this.props.artwork;
-    switch (e.target.value) {
-    case 'recent':
-      artwork.recentChecked = true;
-      artwork.ogChecked = false;
-      artwork.randomChecked = false;
-      break;
-    case 'og':
-      artwork.recentChecked = false;
-      artwork.ogChecked = true;
-      artwork.randomChecked = false;
-      break;
-    case 'random':
-      artwork.recentChecked = false;
-      artwork.ogChecked = false;
-      artwork.randomChecked = true;
-      break;
-    }
-  }
-
-  toggleFilters = (e) => {
-    const artwork = this.props.artwork;
-    switch (e.target.value) {
-    case 'ach':
-      if (artwork.achChecked == true) {
-        artwork.achChecked = false;
-      } else {
-        artwork.achChecked = true;
-        artwork.dcsChecked = false;
-        artwork.bdaChecked = false;
-        artwork.vlsChecked = false;
-        artwork.acsChecked = false;
-        artwork.ogpChecked = false;
-        artwork.perChecked = false;
-        artwork.watChecked = false;
-      }
-      break;
-    case 'dcs':
-      if (artwork.dcsChecked == true) {
-        artwork.dcsChecked = false;
-      } else {
-        artwork.achChecked = false;
-        artwork.dcsChecked = true;
-        artwork.bdaChecked = false;
-        artwork.vlsChecked = false;
-        artwork.acsChecked = false;
-        artwork.ogpChecked = false;
-        artwork.perChecked = false;
-        artwork.watChecked = false;
-      }
-      break;
-    case 'bda':
-      if (artwork.bdaChecked == true) {
-        artwork.bdaChecked = false;
-      } else {
-        artwork.achChecked = false;
-        artwork.dcsChecked = false;
-        artwork.bdaChecked = true;
-        artwork.vlsChecked = false;
-        artwork.acsChecked = false;
-        artwork.ogpChecked = false;
-        artwork.perChecked = false;
-        artwork.watChecked = false;
-      }
-      break;
-    }
   }
 
   render() {
@@ -107,7 +29,9 @@ export default class AllArt extends React.Component {
             acsChecked,
             ogpChecked,
             perChecked,
-            watChecked } = this.props.artwork;
+            watChecked,
+            draChecked,
+            phoChecked } = this.props.artwork;
 
     const artworkList = filteredArt.slice().map( art =>(
       <Artwork key={art.id} {...art} />
@@ -148,6 +72,8 @@ export default class AllArt extends React.Component {
               <label>og paintings<input type="checkbox" value="ogp" checked={ogpChecked} onChange={this.toggleFilters} /></label>
               <label>performances<input type="checkbox" value="per" checked={perChecked} onChange={this.toggleFilters} /></label>
               <label>watercolors<input type="checkbox" value="wat" checked={watChecked} onChange={this.toggleFilters} /></label>
+              <label>drawing<input type="checkbox" value="dra" checked={draChecked} onChange={this.toggleFilters} /></label>
+              <label>photography<input type="checkbox" value="pho" checked={phoChecked} onChange={this.toggleFilters} /></label>
           </div>
         </div>
 
@@ -164,5 +90,198 @@ export default class AllArt extends React.Component {
         </div>
       </section>
     );
+  }
+
+  filter = (e) => {
+    this.props.artwork.filter = e.target.value;
+  }
+
+  toggleSorting = (e) => {
+    const artwork = this.props.artwork;
+    switch (e.target.value) {
+    case 'recent':
+      artwork.recentChecked = true;
+      artwork.ogChecked = false;
+      artwork.randomChecked = false;
+      break;
+    case 'og':
+      artwork.recentChecked = false;
+      artwork.ogChecked = true;
+      artwork.randomChecked = false;
+      break;
+    case 'random':
+      artwork.recentChecked = false;
+      artwork.ogChecked = false;
+      artwork.randomChecked = true;
+      break;
+    }
+  }
+
+  toggleFilters = (e) => {
+    console.log('filter: ', e.target.value);
+    const artwork = this.props.artwork;
+    switch (e.target.value) {
+    case 'ach':
+      if (artwork.achChecked == true) {
+        artwork.achChecked = false;
+      } else {
+        artwork.achChecked = true;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'dcs':
+      if (artwork.dcsChecked == true) {
+        artwork.dcsChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = true;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'bda':
+      if (artwork.bdaChecked == true) {
+        artwork.bdaChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = true;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'vls':
+      if (artwork.vlsChecked == true) {
+        artwork.vlsChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = true;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'acs':
+      if (artwork.acsChecked == true) {
+        artwork.acsChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = true;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'ogp':
+      if (artwork.ogpChecked == true) {
+        artwork.ogpChecked = false;
+      } else {
+        console.log('ogp!');
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = true;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'per':
+      if (artwork.perChecked == true) {
+        artwork.perChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = true;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'wat':
+      if (artwork.watChecked == true) {
+        artwork.watChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = true;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'dra':
+      if (artwork.draChecked == true) {
+        artwork.draChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = true;
+        artwork.phoChecked = false;
+      }
+      break;
+    case 'pho':
+      if (artwork.phoChecked == true) {
+        artwork.phoChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = true;
+      }
+      break;
+    }
   }
 }
