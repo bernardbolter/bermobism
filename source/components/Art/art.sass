@@ -1,0 +1,93 @@
+.allart
+  width: 100%
+  margin: 0
+  padding: 0
+
+  img
+    width: 96%
+    margin: 2%
+
+.allart-header
+  width: 90%
+  padding: 0 5%
+  background: $art-nav-back
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.allart-search
+  color: $art-nav-text
+  opacity: 0.8
+  text-decoration: none
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+
+  h3
+    font-family: $kaffee
+    font-size: 24px
+    margin: 12px 12px 0 0
+    letter-spacing: 0.05em
+    opacity: 0.8
+
+.allart-button
+  width: 20px
+  height: 20px
+  border: 2px solid $art-button-text
+  border-radius: 50%
+  margin-top: 14px
+
+  &:before, &:after
+    content: ''
+    display: inline-block
+    width: 2px
+    background-color: $art-button-text
+    position: relative
+    transition: 300ms ease-in-out all
+
+  &:before
+    transform: rotate(-45deg)
+    left: 6px
+    top: 7px
+    height: 9px
+
+  &:after
+    transform: rotate(45deg)
+    left: 10px
+    top: 7px
+    height: 9px
+
+.allart-button-open
+  &:before
+    transform: translateX(3px) rotate(-45deg) !important
+    left: 6px
+    top: 4px
+    height: 13px
+
+  &:after
+    transform: translateX(-3px) rotate(45deg) !important
+    left: 10px
+    top: 4px
+    height: 13px
+
+.allart-world
+  color: $art-nav-text
+  opacity: 0.6
+  text-decoration: none
+
+  h1
+    font-family: $kaffee
+    font-size: 36px
+    margin: 5px 0
+
+  &:hover
+    opacity: 0.8
+
+.artwork
+  width: 100%
+  margin: 0
+  padding: 0
+  list-style: none
+
+  li
+    width: 33.3%

@@ -19,6 +19,7 @@ export default class AllArt extends React.Component {
   render() {
     const { filter,
             filteredArt,
+            dropOn,
             recentChecked,
             ogChecked,
             randomChecked,
@@ -41,20 +42,20 @@ export default class AllArt extends React.Component {
       <section className="allart">
 
         {/* Top Header with link to Dropdown Search and Filter */}
-        <div className="allart__header">
-          <a href="#" className="allart__header--search">
+        <div className="allart-header">
+          <a href="#" className="allart-search" onClick={this.dropdown}>
             <h3>filter & search</h3>
-            <p>|</p>
+            <div className={this.props.artwork.dropOn ? 'allart-button allart-button-open' : 'allart-button'}></div>
           </a>
-          <a href="https://www.instagram.com/p/KVk_3HqAyu/" className="allart__header--world">
+          <a href="https://www.instagram.com/p/KVk_3HqAyu/" className="allart-world">
             <h1>the whole world + the work =</h1>
           </a>
         </div>
 
         {/* Dropdown Menu */}
-        <div className="allart__dropdown">
+        <div className="allart-dropdown">
           {/* Search and Sorting Options */}
-          <div className="allart__sort">
+          <div className="allart-sort">
             <input className="filter" value={filter} onChange={this.filter} />
             <p>sort by |</p>
               <label>most recent<input type="checkbox" value="recent" checked={recentChecked} onChange={this.toggleSorting} /></label>
@@ -62,7 +63,7 @@ export default class AllArt extends React.Component {
               <label>random<input type="checkbox" value="random" checked={randomChecked} onChange={this.toggleSorting} /></label>
           </div>
           {/* Filter Options */}
-          <div className="allart_filter">
+          <div className="allart-filter">
             <p>filter by |</p>
               <label>a colorful history<input type="checkbox" value="ach" checked={achChecked} onChange={this.toggleFilters} /></label>
               <label>digital city series<input type="checkbox" value="dcs" checked={dcsChecked} onChange={this.toggleFilters} /></label>
@@ -90,6 +91,12 @@ export default class AllArt extends React.Component {
         </div>
       </section>
     );
+  }
+
+  dropdown = (e) => {
+    e.preventDefault();
+    const artwork = this.props.artwork;
+    artwork.dropOn = !artwork.dropOn;
   }
 
   filter = (e) => {

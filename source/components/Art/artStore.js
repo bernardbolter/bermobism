@@ -5,6 +5,7 @@ class artStore {
   @observable artlist = [];
   @observable isLoading = true;
   @observable filter = '';
+  @observable dropOn = false;
 
   @observable recentChecked = true;
   @observable ogChecked = false;
