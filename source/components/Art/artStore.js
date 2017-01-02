@@ -34,10 +34,23 @@ class artStore {
       artworkSorted = artworkFiltered;
     }
 
-    return artworkSorted;
-      // var ogFiltered = _.filter(artworkFiltered, function(data) {
-      //   if(data.series == 'bda' || data.series == 'ach') return data;
-      // });
+    if (this.achChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'ach';
+      });
+    } else if (this.dcsChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'dcs';
+      });
+    } else if (this.bdaChecked == true) {
+      artworkSeries = _.filter(artworkSorted, function(b) {
+        return b.series === 'bda';
+      });
+    } else {
+      artworkSeries = artworkSorted;
+    }
+
+    return artworkSeries;
   }
 
   @action loadArtwork() {

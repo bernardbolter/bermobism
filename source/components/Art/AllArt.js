@@ -50,10 +50,47 @@ export default class AllArt extends React.Component {
     const artwork = this.props.artwork;
     switch (e.target.value) {
     case 'ach':
-      artwork.achChecked = !artwork.achChecked;
+      if (artwork.achChecked == true) {
+        artwork.achChecked = false;
+      } else {
+        artwork.achChecked = true;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+      }
       break;
     case 'dcs':
-      artwork.dcsChecked = !artwork.dcsChecked;
+      if (artwork.dcsChecked == true) {
+        artwork.dcsChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = true;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+      }
+      break;
+    case 'bda':
+      if (artwork.bdaChecked == true) {
+        artwork.bdaChecked = false;
+      } else {
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = true;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+      }
+      break;
     }
   }
 
