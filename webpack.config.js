@@ -6,6 +6,7 @@ module.exports = {
     path: __dirname,
     filename: 'mashup.js'
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
