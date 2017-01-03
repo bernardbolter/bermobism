@@ -1,0 +1,135 @@
+.allart-dropdown
+  width: 100%
+  background: $art-nav-back
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  transition: 1s ease-in-out all
+  z-index: 1
+  top: -145px
+  position: relative
+
+.allart-dropdown-open
+  top: 0
+
+.allart-sort
+  width: 200px
+  margin: 0 10px 10px 5%
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+
+  input[type=text]
+    outline: none
+    border: none
+
+    &:focus
+      box-shadow: none
+
+.filter
+  text-align: left
+  font-family: $pt
+  font-size: 13px
+  color: $art-text-medium
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAXhJREFUeNqUk8srRHEUx38zHiuS8looikjyKLGxYWxkp1mIP0DJkoRuou6CtUc2FjYWo2SH0siCFWFBymMhm4nFJI/SrfE5dW79Mu6MOfXpe++dc76/8zu/34RSqZTxw3GcSmQSOqEdEnAOMdd1d80fEfINKI4i61AGSbgCMWyAMGzBOEZJ2yBfi3uQbXiFKEk7v7pahREohQHbIM/zvCL0AAqldYpP7IRIJPIBsXg8Xs3rEPrM+4X/u7TWD7UwR/G9CY4J7XDM/igGHfq8l6HYYP6GnEIL2yqwDepBJvlgssedbrXGNriV04DGfxg0gQdPtsGZPg9mqqRtOd5uuGY737bBPtzALEmtAcXS4QqUyDjSLhIJXTqgT5iCTVb50uJmZBl64ZHvdUE3sQ/Z0AF52lUVVGhuQm/mEibTaQZqUoyMWv+FdzVak73DIUi3C5jMpxlkCxaQq3wEbTCDyWJOBmpSjhzrkQ6HTY7Bqi+IzOtSTuVHgAEAQlCDXCLNOWwAAAAASUVORK5CYII=)
+  background-repeat: no-repeat
+  background-position: 3px 3px
+  padding: 4px 0 4px 30px
+  background-color: #ededed
+
+.allart-sort-below
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  margin-top: 5px
+
+  p
+    font-size: 12px
+    color: $art-text
+    font-family: $pt
+    margin: 4px 0 0 0
+    align-self: flex-start
+
+.allart-sort-column
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+.allart-label
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  width: 100px
+
+  label
+    font-size: 12px
+    font-family: $pt
+    margin: 4px 5px 0 0
+    cursor: pointer
+    color: $art-text
+    opacity: 0.7
+
+  input
+    width: 10px
+    margin: 5px 3px 0 0
+    cursor: pointer
+
+.allart-filter
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  margin: 30px 0 10px
+
+.allart-filter-all
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  width: 70px
+  margin: 0 30px 0 0
+
+  p
+    font-size: 12px
+    color: $art-text
+    font-family: $pt
+    margin: 4px 0 0 0
+    align-self: flex-end
+    text-align: right
+
+.allart-label-all
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-self: flex-end
+  margin: 2px -3px 0 0
+
+  label
+    font-size: 12px
+    font-family: $pt
+    margin: 4px 5px 0 0
+    cursor: pointer
+    color: $art-text
+    opacity: 0.7
+
+  input
+    width: 10px
+    margin: 5px 3px 0 0
+    cursor: pointer
+
+.allart-label-filter
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  width: 150px
+
+  label
+    font-size: 12px
+    font-family: $pt
+    margin: 4px 5px 0 0
+    cursor: pointer
+    color: $art-text
+    opacity: 0.7
+
+  input
+    width: 10px
+    margin: 5px 3px 0 0
+    cursor: pointer

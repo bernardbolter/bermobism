@@ -2,4 +2,6 @@
 @import 'styles/variables';
 @import 'styles/fonts';
 
-@import 'components/Art/art.sass';
+@import 'components/Art/ArtStyles/art-header.sass';
+@import 'components/Art/ArtStyles/art-filter.sass';
+@import 'components/Art/ArtStyles/art-gallery.sass';

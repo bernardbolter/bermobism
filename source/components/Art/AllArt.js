@@ -23,6 +23,7 @@ export default class AllArt extends React.Component {
             recentChecked,
             ogChecked,
             randomChecked,
+            allChecked,
             achChecked,
             dcsChecked,
             bdaChecked,
@@ -53,33 +54,86 @@ export default class AllArt extends React.Component {
         </div>
 
         {/* Dropdown Menu */}
-        <div className="allart-dropdown">
+        <div className={this.props.artwork.dropOn ? 'allart-dropdown allart-dropdown-open' : 'allart-dropdown'}>
           {/* Search and Sorting Options */}
           <div className="allart-sort">
-            <input className="filter" value={filter} onChange={this.filter} />
+            <input className="filter" type="text" value={filter} onChange={this.filter} />
+            <div className="allart-sort-below">
             <p>sort by |</p>
-              <label>most recent<input type="checkbox" value="recent" checked={recentChecked} onChange={this.toggleSorting} /></label>
-              <label>most og<input type="checkbox" value="og" checked={ogChecked} onChange={this.toggleSorting} /></label>
-              <label>random<input type="checkbox" value="random" checked={randomChecked} onChange={this.toggleSorting} /></label>
+              <div className="allart-sort-column">
+                <div className="allart-label">
+                  <label htmlFor="recent">most recent </label>
+                  <input type="checkbox" id="recent" value="recent" checked={recentChecked} onChange={this.toggleSorting} />
+                </div>
+                <div className="allart-label">
+                  <label htmlFor="og">most og </label>
+                  <input type="checkbox" id="og" value="og" checked={ogChecked} onChange={this.toggleSorting} />
+                </div>
+                <div className="allart-label">
+                  <label htmlFor="random">random </label>
+                  <input type="checkbox" id="random" value="random" checked={randomChecked} onChange={this.toggleSorting} />
+                </div>
+              </div>
+            </div>
           </div>
           {/* Filter Options */}
           <div className="allart-filter">
-            <p>filter by |</p>
-              <label>a colorful history<input type="checkbox" value="ach" checked={achChecked} onChange={this.toggleFilters} /></label>
-              <label>digital city series<input type="checkbox" value="dcs" checked={dcsChecked} onChange={this.toggleFilters} /></label>
-              <label>breaking down art<input type="checkbox" value="bda" checked={bdaChecked} onChange={this.toggleFilters} /></label>
-              <label>vanishing landscapes<input type="checkbox" value="vls" checked={vlsChecked} onChange={this.toggleFilters} /></label>
-              <label>art collision<input type="checkbox" value="acs" checked={acsChecked} onChange={this.toggleFilters} /></label>
-              <label>og paintings<input type="checkbox" value="ogp" checked={ogpChecked} onChange={this.toggleFilters} /></label>
-              <label>performances<input type="checkbox" value="per" checked={perChecked} onChange={this.toggleFilters} /></label>
-              <label>watercolors<input type="checkbox" value="wat" checked={watChecked} onChange={this.toggleFilters} /></label>
-              <label>drawing<input type="checkbox" value="dra" checked={draChecked} onChange={this.toggleFilters} /></label>
-              <label>photography<input type="checkbox" value="pho" checked={phoChecked} onChange={this.toggleFilters} /></label>
+            <div className="allart-filter-all">
+              <p>filter by |</p>
+              <div className="allart-label-all">
+                <label htmlFor="ach">all </label>
+                <input type="checkbox" id="all" value="all" checked={allChecked} onChange={this.toggleFilters} />
+              </div>
+            </div>
+            <div className="allart-filter-column">
+              <div className="allart-label-filter">
+                <input type="checkbox" id="ach" value="ach" checked={achChecked} onChange={this.toggleFilters} />
+                <label htmlFor="ach">a colorful history </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="dcs" value="dcs" checked={dcsChecked} onChange={this.toggleFilters} />
+                <label htmlFor="dcs">digital city series </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="bda" value="bda" checked={bdaChecked} onChange={this.toggleFilters} />
+                <label htmlFor="bda">breaking down art </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="vls" value="vls" checked={vlsChecked} onChange={this.toggleFilters} />
+                <label htmlFor="vls">vanishing landscapes </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="acs" value="acs" checked={acsChecked} onChange={this.toggleFilters} />
+                <label htmlFor="acs">art collision </label>
+              </div>
+            </div>
+            <div className="allart-filter-column">
+              <div className="allart-label-filter">
+                <input type="checkbox" id="ogp" value="ogp" checked={ogpChecked} onChange={this.toggleFilters} />
+                <label htmlFor="ogp">og paintings </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="per" value="per" checked={perChecked} onChange={this.toggleFilters} />
+                <label htmlFor="per">performances </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="wat" value="wat" checked={watChecked} onChange={this.toggleFilters} />
+                <label htmlFor="wat">watercolors </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="dra" value="dra" checked={draChecked} onChange={this.toggleFilters} />
+                <label htmlFor="dra">drawing </label>
+              </div>
+              <div className="allart-label-filter">
+                <input type="checkbox" id="pho" value="pho" checked={phoChecked} onChange={this.toggleFilters} />
+                <label htmlFor="pho">photography </label>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Artwork Gallery Section */}
-        <div>
+        <div className={this.props.artwork.dropOn ? 'allart-gallery allart-gallery-open' : 'allart-gallery'}>
           <h1>{this.props.artwork.filter}</h1>
             <Masonry
                 className={'artwork'}
@@ -132,6 +186,7 @@ export default class AllArt extends React.Component {
       if (artwork.achChecked == true) {
         artwork.achChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = true;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -148,6 +203,7 @@ export default class AllArt extends React.Component {
       if (artwork.dcsChecked == true) {
         artwork.dcsChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = true;
         artwork.bdaChecked = false;
@@ -164,6 +220,7 @@ export default class AllArt extends React.Component {
       if (artwork.bdaChecked == true) {
         artwork.bdaChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = true;
@@ -180,6 +237,7 @@ export default class AllArt extends React.Component {
       if (artwork.vlsChecked == true) {
         artwork.vlsChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -196,6 +254,7 @@ export default class AllArt extends React.Component {
       if (artwork.acsChecked == true) {
         artwork.acsChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -212,7 +271,7 @@ export default class AllArt extends React.Component {
       if (artwork.ogpChecked == true) {
         artwork.ogpChecked = false;
       } else {
-        console.log('ogp!');
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -229,6 +288,7 @@ export default class AllArt extends React.Component {
       if (artwork.perChecked == true) {
         artwork.perChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -245,6 +305,7 @@ export default class AllArt extends React.Component {
       if (artwork.watChecked == true) {
         artwork.watChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -261,6 +322,7 @@ export default class AllArt extends React.Component {
       if (artwork.draChecked == true) {
         artwork.draChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -277,6 +339,7 @@ export default class AllArt extends React.Component {
       if (artwork.phoChecked == true) {
         artwork.phoChecked = false;
       } else {
+        artwork.allChecked = false;
         artwork.achChecked = false;
         artwork.dcsChecked = false;
         artwork.bdaChecked = false;
@@ -287,6 +350,23 @@ export default class AllArt extends React.Component {
         artwork.watChecked = false;
         artwork.draChecked = false;
         artwork.phoChecked = true;
+      }
+      break;
+    case 'all':
+      if (artwork.allChecked == true) {
+        artwork.allChecked = false;
+      } else {
+        artwork.allChecked = true;
+        artwork.achChecked = false;
+        artwork.dcsChecked = false;
+        artwork.bdaChecked = false;
+        artwork.vlsChecked = false;
+        artwork.acsChecked = false;
+        artwork.ogpChecked = false;
+        artwork.perChecked = false;
+        artwork.watChecked = false;
+        artwork.draChecked = false;
+        artwork.phoChecked = false;
       }
       break;
     }

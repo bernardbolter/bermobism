@@ -46,4 +46,4 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
-source/images
+img

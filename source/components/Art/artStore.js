@@ -11,6 +11,8 @@ class artStore {
   @observable ogChecked = false;
   @observable randomChecked = false;
 
+  @observable allChecked = true;
+
   @observable achChecked = false;
   @observable dcsChecked = false;
   @observable bdaChecked = false;
@@ -36,8 +38,9 @@ class artStore {
     } else {
       artworkSorted = artworkFiltered;
     }
-
-    if (this.achChecked == true) {
+    if (this.allChecked == true) {
+      artworkSeries = artworkSorted;
+    } else if (this.achChecked == true) {
       artworkSeries = _.filter(artworkSorted, function(b) {
         return b.series === 'ach';
       });
