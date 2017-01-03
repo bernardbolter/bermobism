@@ -47,38 +47,20 @@
     font-size: 12px
     color: $art-text
     font-family: $pt
-    margin: 4px 0 0 0
+    margin: 4px 17px 0 0
     align-self: flex-start
 
 .allart-sort-column
   display: flex
   flex-direction: column
   justify-content: center
-
-.allart-label
-  display: flex
-  flex-direction: row
-  justify-content: flex-end
-  width: 100px
-
-  label
-    font-size: 12px
-    font-family: $pt
-    margin: 4px 5px 0 0
-    cursor: pointer
-    color: $art-text
-    opacity: 0.7
-
-  input
-    width: 10px
-    margin: 5px 3px 0 0
-    cursor: pointer
+  margin-top: 4px
 
 .allart-filter
   display: flex
   flex-direction: row
   justify-content: flex-end
-  margin: 30px 0 10px
+  margin: 7px 0 10px
 
 .allart-filter-all
   display: flex
@@ -93,43 +75,169 @@
     font-family: $pt
     margin: 4px 0 0 0
     align-self: flex-end
-    text-align: right
 
-.allart-label-all
-  display: flex
-  flex-direction: row
-  justify-content: flex-start
+.allart-label-sort
+  height: 10px
+  line-height: 10px
+  position: relative
+  display: block
+  cursor: pointer
+  font-size: 12px
+  font-family: $pt
+  margin: 0 0 10px 0
+  cursor: pointer
+  color: $art-text
+  opacity: 0.7
   align-self: flex-end
-  margin: 2px -3px 0 0
-
-  label
-    font-size: 12px
-    font-family: $pt
-    margin: 4px 5px 0 0
-    cursor: pointer
-    color: $art-text
-    opacity: 0.7
 
   input
-    width: 10px
-    margin: 5px 3px 0 0
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
     cursor: pointer
+
+  span:after
+    content: ''
+    display: inline-block
+    width: 10px
+    height: 13px
+    font-size: 10px
+    line-height: 12px
+    margin-bottom: -3px
+    padding-left: 3px
+    background-color: $check-light
+
+  input:checked+span:after
+    content: '\2714'
+    color: $art-text-medium
+    opacity: 1
+    line-height: 15px
+    background-color: $check-light
+
+.check-all
+  margin: 8px 0 0 0
+
+.allart-filter-column
+  display: flex
+  flex-direction: column
+  width: 200px
+  margin: 5px 0 0 0
 
 .allart-label-filter
-  display: flex
-  flex-direction: row
-  justify-content: flex-start
-  width: 150px
-
-  label
-    font-size: 12px
-    font-family: $pt
-    margin: 4px 5px 0 0
-    cursor: pointer
-    color: $art-text
-    opacity: 0.7
+  height: 10px
+  line-height: 10px
+  position: relative
+  display: block
+  cursor: pointer
+  font-size: 12px
+  font-family: $pt
+  margin: 0 0 10px 0
+  cursor: pointer
+  color: $art-text
+  opacity: 0.7
 
   input
-    width: 10px
-    margin: 5px 3px 0 0
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
     cursor: pointer
+
+  span:before
+    content: ''
+    display: inline-block
+    width: 10px
+    height: 13px
+    opacity: 0.7
+    margin-right: 5px
+    font-size: 10px
+    line-height: 12px
+    margin-bottom: -3px
+    padding-left: 3px
+
+  input:checked+span:before
+    content: '\2714'
+    color: white
+    opacity: 1
+    line-height: 15px
+
+.check-ach
+  span:before
+    background-color: $ach-light
+  input:hover+span:before
+    background-color: $ach
+  input:checked+span:before
+    background-color: $ach
+
+.check-dcs
+  span:before
+    background-color: $dcs-light
+  input:hover+span:before
+    background-color: $dcs
+  input:checked+span:before
+    background-color: $dcs
+
+.check-bda
+  span:before
+    background-color: $bda-light
+  input:hover+span:before
+    background-color: $bda
+  input:checked+span:before
+    background-color: $bda
+
+.check-vls
+  span:before
+    background-color: $vls-light
+  input:hover+span:before
+    background-color: $vls
+  input:checked+span:before
+    background-color: $vls
+
+.check-acs
+  span:before
+    background-color: $acs-light
+  input:hover+span:before
+    background-color: $acs
+  input:checked+span:before
+    background-color: $acs
+
+.check-ogp
+  span:before
+    background-color: $ogp-light
+  input:hover+span:before
+    background-color: $ogp
+  input:checked+span:before
+    background-color: $ogp
+
+.check-per
+  span:before
+    background-color: $per-light
+  input:hover+span:before
+    background-color: $per
+  input:checked+span:before
+    background-color: $per
+
+.check-wat
+  span:before
+    background-color: $wat-light
+  input:hover+span:before
+    background-color: $wat
+  input:checked+span:before
+    background-color: $wat
+
+.check-dra
+  span:before
+    background-color: $dra-light
+  input:hover+span:before
+    background-color: $dra
+  input:checked+span:before
+    background-color: $dra
+
+.check-pho
+  span:before
+    background-color: $pho-light
+  input:hover+span:before
+    background-color: $pho
+  input:checked+span:before
+    background-color: $pho

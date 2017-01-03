@@ -7,3 +7,42 @@ $art-text: #231f20;
 $art-text-medium: #515151;
 $art-text-light: #7c7c7c;
 $art-button-text: #666666;
+
+// SERIES COLORS
+$check: #C0C0C0;
+$check-light: lighten($check, 20%);
+
+$ach: #9aaf75;
+$ach-light: lighten($ach, 10%);
+
+$dcs: #878dc5;
+$dcs-light: lighten($dcs, 10%);
+
+$bda: #c32127;
+$bda-light: lighten($bda, 20%);
+
+$vls: #f9a41b;
+$vls-light: lighten($vls, 20%);
+
+$acs: #a85225;
+$acs-light: lighten($acs, 20%);
+
+$ogp: #b47770;
+$ogp-light: lighten($ogp, 15%);
+
+$per: #979292;
+$per-light: lighten($per, 10%);
+
+$wat: #386482;
+$wat-light: lighten($wat, 20%);
+
+$dra: #6c9e9b;
+$dra-light: lighten($dra, 10%);
+
+$pho: #51487f;
+$pho-light: lighten($pho, 20%);
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
