@@ -56,6 +56,6 @@ class infoStore {
   }
 }
 
-var information = window.information = new infoStore;
+var information = new infoStore;
 
 export default information;

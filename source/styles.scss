@@ -2,6 +2,12 @@
 @import 'styles/variables';
 @import 'styles/fonts';
 
+@import 'components/Portal/PortalStyles/portal-variables.sass';
+@import 'components/Portal/PortalStyles/portal-mixins.scss';
+@import 'components/Portal/PortalStyles/portal-letters.sass';
+@import 'components/Portal/PortalStyles/portal-links.sass';
+
+
 @import 'components/Art/ArtStyles/art-header.sass';
 @import 'components/Art/ArtStyles/art-filter.sass';
 @import 'components/Art/ArtStyles/art-gallery.sass';

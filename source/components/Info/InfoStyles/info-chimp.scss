@@ -23,7 +23,7 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
 }
 .mc-field-group { display: inline-block; } /* positions input field horizontally */
 #mc_embed_signup input.email {
-  font-family: $pt;
+  font-family: $body;
   font-size: 15px;
   border: 1px solid $info-back;
   border-radius: 3px;
@@ -52,7 +52,7 @@ Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
 #mc_embed_signup .clear {display: inline-block;} /* positions button horizontally in line with input */
 #mc_embed_signup .button {
   font-size: 13px;
-  font-family: $pt;
+  font-family: $body;
   border: none;
   border-radius: 3px;
   letter-spacing: .03em;
