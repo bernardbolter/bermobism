@@ -92,7 +92,7 @@ class artStore {
     window.fetch('http://bolter.acolorfulhistory.com/wp-json/wp/v2/artwork?per_page=100')
     .then(results => results.json())
     .then(json => {
-      console.log('the jason:', json);
+      // console.log('the jason:', json);
       this.artlist = json;
       this.isLoading = false;
     });
@@ -103,8 +103,8 @@ var artwork = window.artwork = new artStore;
 
 export default artwork;
 
-autorun(() => {
-  console.log('artilst:', artwork.artlist);
-  console.log('loading..', artwork.isLoading);
-  console.log('filter', artwork.filter);
-});
+// autorun(() => {
+//   console.log('artilst:', artwork.artlist);
+//   console.log('loading..', artwork.isLoading);
+//   console.log('filter', artwork.filter);
+// });
