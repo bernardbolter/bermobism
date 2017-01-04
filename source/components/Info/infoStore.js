@@ -7,7 +7,7 @@ class infoStore {
   @observable showSignup = false;
 
   @action startRollover = () => {
-    this.bernardbolter = this.bernardbolter.replace('at symbol', 'email list');
+    this.bernardbolter = this.bernardbolter.replace('at symbol', 'email');
   }
 
   @action endRollover = () => {
@@ -21,6 +21,8 @@ class infoStore {
       this.isRollover = false;
       let long = this.bernardbolter.length;
       this.replaceText(this.bernardbolter, 0, long);
+    } else {
+      this.closeSignup();
     }
   }
 
@@ -33,9 +35,8 @@ class infoStore {
         this.replaceText(text, i, n);
       }, 40 );
     } else {
-      this.bernardbolter = 'join [\u00a0\u00a0email\u00a0\u00a0] list -->';
+      this.bernardbolter = 'join [ email ] list -->';
       this.textAppear(this.bernardbolter, 0);
-      this.showSignup = true;
     }
   }
 
@@ -46,6 +47,8 @@ class infoStore {
       setTimeout(() => {
         this.textAppear(text, i);
       }, 70 );
+    } else {
+      this.showSignup = true;
     }
   }
 

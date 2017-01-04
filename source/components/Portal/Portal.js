@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import classNames from 'classNames';
+import jump from 'jump.js';
 
 export default class Portal extends React.Component {
   constructor(props){
@@ -18,6 +19,11 @@ export default class Portal extends React.Component {
       smoothHover: false,
       smoothLight: false
     };
+  }
+
+  triggerScroll = (e) => {
+    e.preventDefault();
+    jump('#info-jump');
   }
 
   lettersHover(text, e) {
@@ -113,6 +119,7 @@ export default class Portal extends React.Component {
     return (
     <section className="portal">
       <div className="max-width">
+        <div className="portal__artlink"><a href="#" id="portal-artlink" onClick={this.triggerScroll}>Artwork</a></div>
         <div className="portal__letters">
           <span className={'portal__title ' + lettersHoverClass}>THE<span className="portal__title--light-1">WEB</span><span className="portal__title--light-2">PORTAL</span></span>
           <span className={'portal__aka ' + lettersHoverClass}>OF</span>
@@ -154,26 +161,10 @@ export default class Portal extends React.Component {
             <p>IV</p>
           </div>
           <div className="portal__links">
-            <a className="portal__links--color" href="http://acolorfulhistory.com/">acolorfulhistory.com
-              <svg className='portal__links--color-arrow' viewBox='0 0 512 512' preserveAspectRatio='xMinYMin meet'>
-                  <use xlinkHref='../svgs/defs.svg#svg-link' />
-              </svg>
-            </a>
-            <a className="portal__links--dcs" href="http://www.digitalcityseries.com/">digitalcityseries.com
-              <svg className='portal__links--travel-arrow' viewBox='0 0 512 512' preserveAspectRatio='xMinYMin meet'>
-                  <use xlinkHref='../svgs/defs.svg#svg-link' />
-              </svg>
-            </a>
-            <a className="portal__links--pullup" href="http://www.pullupgallery.org/">pullupgallery.org
-              <svg className='portal__links--pullup-arrow' viewBox='0 0 512 512' preserveAspectRatio='xMinYMin meet'>
-                  <use xlinkHref='../svgs/defs.svg#svg-link' />
-              </svg>
-            </a>
-            <a className="portal__links--smooth" href="http://www.smoothism.com/">smoothism.com
-            <svg className='portal__links--smooth-arrow' viewBox='0 0 512 512' preserveAspectRatio='xMinYMin meet'>
-                <use xlinkHref='../svgs/defs.svg#svg-link' />
-            </svg>
-            </a>
+            <a className="portal__links--color" href="http://acolorfulhistory.com/">acolorfulhistory.com<span></span></a>
+            <a className="portal__links--dcs" href="http://www.digitalcityseries.com/">digitalcityseries.com<span></span></a>
+            <a className="portal__links--pullup" href="http://www.pullupgallery.org/">pullupgallery.org<span></span></a>
+            <a className="portal__links--smooth" href="http://www.smoothism.com/">smoothism.com<span></span></a>
           </div>
         </div>
       </div>

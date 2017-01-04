@@ -43,13 +43,13 @@ export default class AllArt extends React.Component {
       <section className="allart">
 
         {/* Top Header with link to Dropdown Search and Filter */}
-        <div className="allart-header">
+        <div className="allart-header" >
           <a href="#" className="allart-search" onClick={this.dropdown}>
             <h3>filter & search</h3>
             <div className={this.props.artwork.dropOn ? 'allart-button allart-button-open' : 'allart-button'}></div>
           </a>
           <a href="https://www.instagram.com/p/KVk_3HqAyu/" className="allart-world">
-            <h1>the whole world + the work =</h1>
+            <h1>the whole world + the work =</h1><span></span>
           </a>
         </div>
 

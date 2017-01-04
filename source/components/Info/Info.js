@@ -15,7 +15,7 @@ export default class Info extends React.Component {
             startRollover,
             endRollover } = this.props.info;
     return (
-        <section className="info">
+        <section className="info" id="info-jump">
 
           {/*  INFO eMAIL SIGNUP  */}
           <div className="info-email"
