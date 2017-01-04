@@ -151,6 +151,9 @@ export default class AllArt extends React.Component {
     e.preventDefault();
     const artwork = this.props.artwork;
     artwork.dropOn = !artwork.dropOn;
+    if (artwork.dropOn == false) {
+      artwork.filter = '';
+    }
   }
 
   filter = (e) => {

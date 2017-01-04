@@ -2,13 +2,26 @@ import { autorun, action, computed, observable  } from 'mobx';
 
 class infoStore {
   @observable bernardbolter = 'b [ at symbol ] bernardbolter.com';
+  @observable isRollover = true;
+  @observable formInput = '';
+  @observable showSignup = false;
 
-  @action beginEmailAnimation = () => {
-    this.replaceText(this.bernardbolter, 0, 32);
+  @action startRollover = () => {
+    this.bernardbolter = this.bernardbolter.replace('at symbol', 'email list');
   }
 
-  @action endEmailAnimation = () => {
-    this.bernardbolter = 'b [ at symbol ] bernardbolter.com';
+  @action endRollover = () => {
+    if (this.isRollover == true) {
+      this.bernardbolter = 'b [ at symbol ] bernardbolter.com';
+    }
+  }
+
+  @action beginEmailAnimation = () => {
+    if (this.showSignup == false) {
+      this.isRollover = false;
+      let long = this.bernardbolter.length;
+      this.replaceText(this.bernardbolter, 0, long);
+    }
   }
 
   @action replaceText = (text, i, n) => {
@@ -20,8 +33,9 @@ class infoStore {
         this.replaceText(text, i, n);
       }, 40 );
     } else {
-      this.bernardbolter = 'join [ email ] list -->';
+      this.bernardbolter = 'join [\u00a0\u00a0email\u00a0\u00a0] list -->';
       this.textAppear(this.bernardbolter, 0);
+      this.showSignup = true;
     }
   }
 
@@ -33,6 +47,12 @@ class infoStore {
         this.textAppear(text, i);
       }, 70 );
     }
+  }
+
+  @action closeSignup = () => {
+    this.bernardbolter = 'b [ at symbol ] bernardbolter.com';
+    this.showSignup = false;
+    this.isRollover = true;
   }
 }
 
