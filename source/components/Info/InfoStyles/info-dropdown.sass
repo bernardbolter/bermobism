@@ -6,10 +6,11 @@
   overflow: hidden
   transition: all 2s ease-in-out
   color: $info-text-light
+  width: 100%
 
 .info-dropdown-open
-  max-height: 1000px
-  opacity: .95
+  max-height: 1300px
+  opacity: .975
 
 .showInfo-enter
   opacity: 0.01
@@ -25,3 +26,76 @@
 .showInfo-leave.showInfo-leave-active
   opacity: 0.01
   transition: 3000ms
+
+.info-cv
+  width: 70%
+  margin: 5% 15%
+  padding: 0
+  display: flex
+  flex-direction: row
+  justify-content: center
+
+.info-cv-name
+  width: 30%
+
+  h1
+    font-size: 20px
+    text-align: right
+    font-weight: 500
+    margin: 0 0 5px 0
+    padding: 0
+    color: $info-text-light
+    font-family: $body-regular
+
+  p
+    font-size: 12px
+    font-weight: 300
+    color: $info-text-light
+    font-family: $body-regular
+    text-align: right
+    margin: 0
+    padding: 0
+
+.info-cv-list
+  width: 70%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin-top: -16px
+
+.info-cv-header
+  width: 95%
+  margin: 20px 0 20px 5%
+  font-family: $mono-base
+  font-size: 16px
+  color: $info-text-light
+  text-transform: uppercase
+  letter-spacing: .03em
+
+.info-cv-row
+  width: 95%
+  margin: 0 0 0 5%
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+
+  h4
+    font-size: 14px
+    font-family: $body-regular
+    font-weight: 500
+    color: $info-text-light
+    margin: 3px 30px 3px 0
+    padding: 0
+
+  h3
+    font-size: 13px
+    font-family: $body-regular
+    font-weight: 400
+    margin: 3px 0
+    letter-spacing: .05em
+    padding: 0
+    color: $info-text-light
+    line-height: 1.2
+
+.cv-bold
+  font-weight: 600
