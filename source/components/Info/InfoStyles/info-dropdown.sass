@@ -1,12 +1,27 @@
 .info-dropdown
-  background-color: #fff
+  background-color: $info-back
   position: absolute
   top: 40px
-  opacity: 0
   max-height: 0
   overflow: hidden
-  transition: max-height 2s ease-in-out
+  transition: all 2s ease-in-out
+  color: $info-text-light
 
 .info-dropdown-open
-  max-height: 400px
+  max-height: 1000px
   opacity: .95
+
+.showInfo-enter
+  opacity: 0.01
+
+.showInfo-enter.showInfo-enter-active
+  opacity: 1
+  transition: 3000ms
+
+.showInfo-leave
+  opacity: 1
+
+
+.showInfo-leave.showInfo-leave-active
+  opacity: 0.01
+  transition: 3000ms
