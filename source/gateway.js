@@ -1,4 +1,3 @@
-import 'purecss/build/pure.css';
 import './styles.scss';
 
 import React from 'react';

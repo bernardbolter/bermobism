@@ -35,10 +35,6 @@ export default class AllArt extends React.Component {
             draChecked,
             phoChecked } = this.props.artwork;
 
-    const artworkList = filteredArt.slice().map( art =>(
-      <Artwork key={art.id} {...art} />
-    ));
-
     return (
       <section className="allart">
 
@@ -131,21 +127,40 @@ export default class AllArt extends React.Component {
             </div>
           </div>
         </div>
-
-        {/* Artwork Gallery Section */}
         <div className={this.props.artwork.dropOn ? 'allart-gallery allart-gallery-open' : 'allart-gallery'}>
-          <h1>{this.props.artwork.filter}</h1>
-            <Masonry
-                className={'artwork'}
-                elementType={'ul'}
-                options={masonryOptions}
-              >
-              { artworkList }
-            </Masonry>
+        {this.artworkGallery()}
         </div>
       </section>
     );
   }
+
+  artworkGallery = () => {
+    const artstore = this.props.artwork;
+    if (artstore.isLoading) {
+      return (
+        <div className="allart-loading">
+          <img src="./img/reload.gif" />
+          <p>Loading Artwork...</p>
+        </div>
+      );
+    } else {
+      return (
+        <section className="allart-gallery-loop">
+          <p className="artgallery-filtered">{artstore.filter}</p>
+            <Masonry
+              className={'artwork'}
+              elementType={'ul'}
+              options={masonryOptions}
+              >
+            { artstore.filteredArt.slice().map( art => (
+                <Artwork key={art.id} {...art} />
+              ))
+            }
+          </Masonry>
+        </section>
+      );
+    }
+  };
 
   dropdown = (e) => {
     e.preventDefault();

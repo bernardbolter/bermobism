@@ -7,17 +7,26 @@
   display: flex
   flex-direction: row
   justify-content: space-between
+  transition: background-color 1s ease
+
+.info-open
+  background-color: $info-back-open
+
 
 .info-email
   margin: 0 10px 0 5%
   font-family: $body
   font-weight: 400
   color: $info-text-light
-  font-size: 20px
+  font-size: 17px
   letter-spacing: .04em
   width: auto
   align-self: center
   cursor: pointer
+  transition: color 1s ease
+
+.info-email-open
+  color: $info-text
 
 .info-nav
   margin: 0 5% 0 0
@@ -34,5 +43,28 @@
     font-family: $body
     font-weight: 500
     text-transform: uppercase
-    font-size: 18px
+    font-size: 16px
     letter-spacing: 0.08em
+    position: relative
+    z-index: 100
+    transition: all 1s ease-in-out
+    top: 0
+
+  span
+    color: $info-text-light
+
+.info-nav-open
+  a
+    color: $info-text
+
+  span
+    color: $info-text
+
+.info-nav-cv-open
+  top: 40px !important
+
+.info-nav-bio-open
+  top: 40px !important
+
+.info-nav-statement-open
+  top: 40px !important

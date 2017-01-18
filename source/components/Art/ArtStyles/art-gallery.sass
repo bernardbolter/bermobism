@@ -1,8 +1,30 @@
 .allart-gallery
   position: relative
-  top: -145px
+  top: -122px
   transition: 1s ease-in-out all
   z-index: 1
+  min-height: 500px
 
 .allart-gallery-open
   top: 0
+
+.allart-loading
+  background-image: radial-gradient( circle at top left, #eee, #fff )
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  min-height: 1000px
+
+  img
+    height: 54px
+    width: 54px
+    margin: 20px 20px 0 5%
+
+  p
+    font-size: 20px
+    font-family: $mono-base
+    font-weight: 400
+    text-transform: uppercase
+    color: #777
+    margin: 32px 0 0 0
+    letter-spacing: .05em

@@ -1,5 +1,6 @@
 import { autorun, action, computed, observable  } from 'mobx';
 import _ from 'lodash';
+import axios from 'axios';
 
 class artStore {
   @observable artlist = [];
@@ -89,13 +90,15 @@ class artStore {
 
   @action loadArtwork() {
     this.isLoading = true;
-    window.fetch('http://bolter.acolorfulhistory.com/wp-json/wp/v2/artwork?per_page=100')
-    .then(results => results.json())
-    .then(json => {
-      // console.log('the jason:', json);
-      this.artlist = json;
-      this.isLoading = false;
-    });
+    axios.get('http://artwork.bernardbolter.com/wp-json/wp/v2/artwork?per_page=100')
+      .then(results =>  {
+        console.log(results.data);
+        this.artlist = results.data;
+        this.isLoading = false;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 }
 
@@ -103,8 +106,8 @@ var artwork = window.artwork = new artStore;
 
 export default artwork;
 
-// autorun(() => {
-//   console.log('artilst:', artwork.artlist);
-//   console.log('loading..', artwork.isLoading);
-//   console.log('filter', artwork.filter);
-// });
+autorun(() => {
+  console.log('artlist:', artwork.artlist);
+  console.log('loading..', artwork.isLoading);
+  console.log('filter', artwork.filter);
+});
