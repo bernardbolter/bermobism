@@ -23,7 +23,8 @@ export default class Info extends React.Component {
             isInfoDropdown,
             toggleNavCV,
             toggleNavBio,
-            toggleNavStatement } = this.props.info;
+            toggleNavStatement,
+            closeInfo } = this.props.info;
 
     return (
         <section className="info" id="info-jump" ref="jump">
@@ -59,6 +60,7 @@ export default class Info extends React.Component {
 
           {/*  INFO DROPDOWN WITH CV, BIO, and STAEMENT  */}
           <div className={isInfoDropdown ? 'info-dropdown info-dropdown-open' : 'info-dropdown'}>
+            <a className="info-close" onClick={closeInfo}></a>
             <ReactCSSTransitionGroup transitionName="showInfo" transitionAppear={true} transitionAppearTimeout={20000} transitionEnter={true} transitionLeave={true} transitionEnterTimeout={3000} transitionLeaveTimeout={3000}>
               {this.injectInfo()}
             </ReactCSSTransitionGroup>

@@ -65,6 +65,20 @@ class infoStore {
     this.isInfoRollover = true;
   }
 
+  @action closeInfo = (e) => {
+    e.preventDefault();
+    let currentOffset = Math.round(e.currentTarget.getBoundingClientRect().top);
+    console.log('cur:', currentOffset);
+    if (currentOffset == 90) {
+      jump(-this.startInfoDropdownHeight);
+    }
+    this.toggleNavCV = false;
+    this.toggleNavBio = false;
+    this.toggleNavStatement = false;
+    this.isInfoDropdown = false;
+    this.toggleState = '';
+  }
+
   @action infoOpenDropdown = (e) => {
     e.preventDefault();
     console.log('value: ', e.currentTarget.id);
