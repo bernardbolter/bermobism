@@ -23,6 +23,15 @@ class infoStore {
     }
   }
 
+  @action toggleEmail = () => {
+    this.isInfoRollover = !this.isInfoRollover;
+    if (this.isInfoRollover == true) {
+      this.bernardbolter = 'b [ at symbol ] bernardbolter.com';
+    } else if (this.isInfoRollover == false) {
+      this.bernardbolter = 'b [ email ] bernardbolter.com';
+    }
+  }
+
   @action beginEmailAnimation = () => {
     var insideWide = window.innerWidth;
     if (insideWide > 950) {

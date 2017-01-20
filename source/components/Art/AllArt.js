@@ -6,7 +6,10 @@ import Artwork from './Artwork';
 
 var masonryOptions = {
   transitionDuration: '0.2s',
-  percentPosition: true
+  percentPosition: true,
+  gutter: '.artwork-gutter',
+  columnWidth: '.artwork-sizer',
+  itemSelector: '.artwork-item'
 };
 
 @observer
@@ -18,6 +21,7 @@ export default class AllArt extends React.Component {
 
   render() {
     const { filter,
+            someArt,
             filteredArt,
             dropOn,
             recentChecked,
@@ -127,9 +131,9 @@ export default class AllArt extends React.Component {
             </div>
           </div>
         </div>
-        <div className={this.props.artwork.dropOn ? 'allart-gallery allart-gallery-open' : 'allart-gallery'}>
+
         {this.artworkGallery()}
-        </div>
+
       </section>
     );
   }
@@ -145,19 +149,21 @@ export default class AllArt extends React.Component {
       );
     } else {
       return (
-        <section className="allart-gallery-loop">
-          <p className="artgallery-filtered">{artstore.filter}</p>
+        <div className={this.props.artwork.dropOn ? 'allart-gallery allart-gallery-open' : 'allart-gallery'}>
+          <p className="allart-gallery-filtered">{artstore.filterResults}</p>
             <Masonry
               className={'artwork'}
-              elementType={'ul'}
+              elementType={'div'}
               options={masonryOptions}
               >
+              <div className="artwork-sizer"></div>
+              <div className="artwork-gutter"></div>
             { artstore.filteredArt.slice().map( art => (
                 <Artwork key={art.id} {...art} />
               ))
             }
           </Masonry>
-        </section>
+        </div>
       );
     }
   };

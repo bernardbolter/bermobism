@@ -1,4 +1,4 @@
-import { autorun, action, computed, observable  } from 'mobx';
+import { action, computed, observable  } from 'mobx';
 import _ from 'lodash';
 import axios from 'axios';
 
@@ -88,6 +88,14 @@ class artStore {
     return artworkSeries;
   }
 
+  @computed get filterResults() {
+    if (this.filter != '' && this.filteredArt != null) {
+      return 'results for: ' + this.filter;
+    } else if (this.filter != '' && this.filteredArt == null) {
+      return 'no results for: ' + this.filter;
+    }
+  }
+
   @action loadArtwork() {
     this.isLoading = true;
     axios.get('http://artwork.bernardbolter.com/wp-json/wp/v2/artwork?per_page=100')
@@ -102,12 +110,6 @@ class artStore {
   }
 }
 
-var artwork = window.artwork = new artStore;
+var artwork = new artStore;
 
 export default artwork;
-
-autorun(() => {
-  console.log('artlist:', artwork.artlist);
-  console.log('loading..', artwork.isLoading);
-  console.log('filter', artwork.filter);
-});

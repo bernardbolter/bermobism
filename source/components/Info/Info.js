@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import InfoChimp from './InfoChimp';
 import information from './infoStore';
 
 import InfoCV from './InfoCV';
@@ -16,9 +15,7 @@ export default class Info extends React.Component {
   }
   render() {
     const { bernardbolter,
-            beginEmailAnimation,
-            startRollover,
-            endRollover,
+            toggleEmail,
             infoOpenDropdown,
             isInfoDropdown,
             toggleNavCV,
@@ -32,11 +29,8 @@ export default class Info extends React.Component {
           <div className="info-wrapper">
           {/*  INFO eMAIL SIGNUP  */}
           <div className="info-email"
-            onMouseEnter={startRollover}
-            onMouseLeave={endRollover}
-            onClick={beginEmailAnimation}
+            onClick={toggleEmail}
             >{bernardbolter}</div>
-          <InfoChimp info={information} />
 
           {/*  INFO NAVIGATION  */}
           <nav className="info-nav">

@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
       <div className="container">
         <Portal />
         <Info info={information} />
-        <AllArt artwork={artwork} ref="artworkComponent"/>
+        <AllArt artwork={artwork} />
       </div>
     );
   }

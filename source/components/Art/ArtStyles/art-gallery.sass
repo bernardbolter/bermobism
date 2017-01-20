@@ -31,3 +31,211 @@
     color: #777
     margin: 32px 0 0 0
     letter-spacing: .05em
+
+.allart-gallery-filtered
+  width: 90%
+  margin: 0 5%
+  padding: 0
+  display: block
+  height: 20px
+  line-height: 20px
+  font-size: 12px
+  color: $art-text-light
+
+.artwork
+  width: 92%
+  margin: 2% 4%
+  padding: 0
+  list-style: none
+
+  +min-screen(540px)
+    width: 84%
+    margin: 2% 8%
+
+  +min-screen(650px)
+    width: 78%
+    margin: 2% 11%
+
+  +min-screen(600px)
+    width: 72%
+    margin: 2% 14%
+
+  +min-screen(700px)
+    width: 94%
+    margin: 2% 3%
+
+  +min-screen(1000px)
+    width: 93%
+    margin: 2% 3.5%
+
+  +min-screen(1400px)
+    width: 94%
+    margin: 2% 3%
+
+  +min-screen(1800px)
+    width: 95%
+    margin: 2% 2.5%
+
+  +min-screen(2200px)
+    width: 96%
+    margin: 2% 2%
+
+  +min-screen(2600px)
+    width: 2200px
+    margin: 2% auto
+
+  img
+    width: 100%
+    margin: 0
+    padding: 0
+
+.artwork-sizer
+  width: 100%
+
+  +min-screen(700px)
+    width: 48%
+
+  +min-screen(1000px)
+    width: 31%
+
+  +min-screen(1400px)
+    width: 22.75%
+
+  +min-screen(1800px)
+    width: 18%
+
+  +min-screen(2200px)
+    width: 15%
+
+.artwork-item
+  width: 100%
+  margin: 0 auto 99px
+
+  +min-screen(700px)
+    width: 48%
+
+  +min-screen(1000px)
+    width: 31%
+
+  +min-screen(1400px)
+    width: 22.75%
+
+  +min-screen(1800px)
+    width: 18%
+
+  +min-screen(2200px)
+    width: 15%
+
+  a
+   text-decoration: none
+   color: $art-text
+   font-family: $body
+
+.artwork-gutter
+  width: 0
+
+  +min-screen(700px)
+    width: 4%
+
+  +min-screen(1000px)
+    width: 3.5%
+
+  +min-screen(1400px)
+    width: 3%
+
+  +min-screen(1800px)
+    width: 2.5%
+
+  +min-screen(2200px)
+    width: 2%
+
+// ARTWORK INFORMATION
+
+.artwork-info-wrap
+  width: 100%
+  margin: 5px 0 0
+  padding: 0
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.artwork-info
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+
+.artwork-dcs-city
+  font-size: 16px
+  margin: 0 0 4px
+  padding: 0
+  text-transform: uppercase
+  font-weight: 500
+  align-self: flex-end
+
+.artwork-dcs-country
+  font-size: 13px
+  text-transform: lowercase
+  font-weight: 300
+
+.artwork-title
+  font-size: 16px
+  margin: 0 0 4px
+  padding: 0
+  font-weight: 500
+  align-self: flex-end
+
+.artwork-location
+  font-size: 11px
+  font-weight: 300
+
+.artwork-details
+  font-size: 12px
+  margin: 0 0 3px 0
+  padding: 0
+  align-self: flex-end
+  color: $art-text-medium
+
+.artwork-year
+  font-size: 10px
+  margin: 0
+  padding: 0
+  align-self: flex-end
+  color: $art-text-light
+
+// ARTWORK COLOR BOX DISPLAY
+
+.artwork-color
+  width: 8px
+  height: 8px
+  background: grey
+  display: block
+
+.artwork-ach
+  background: $ach
+
+.artwork-dcs
+  background: $dcs
+
+.artwork-bda
+  background: $bda
+
+.artwork-vls
+  background: $vls
+
+.artwork-acs
+  background: $acs
+
+.artwork-ogp
+  background: $ogp
+
+.artwork-per
+  background: $per
+
+.artwork-wat
+  background: $wat
+
+.artwork-dra
+  background: $dra
+
+.artwork-pho
+  background: $pho
