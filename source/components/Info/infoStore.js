@@ -24,12 +24,15 @@ class infoStore {
   }
 
   @action beginEmailAnimation = () => {
-    if (this.showSignup == false) {
-      this.isInfoRollover = false;
-      let long = this.bernardbolter.length;
-      this.replaceText(this.bernardbolter, 0, long);
-    } else {
-      this.closeSignup();
+    var insideWide = window.innerWidth;
+    if (insideWide > 950) {
+      if (this.showSignup == false) {
+        this.isInfoRollover = false;
+        let long = this.bernardbolter.length;
+        this.replaceText(this.bernardbolter, 0, long);
+      } else {
+        this.closeSignup();
+      }
     }
   }
 
@@ -68,7 +71,6 @@ class infoStore {
   @action closeInfo = (e) => {
     e.preventDefault();
     let currentOffset = Math.round(e.currentTarget.getBoundingClientRect().top);
-    console.log('cur:', currentOffset);
     if (currentOffset == 90) {
       jump(-this.startInfoDropdownHeight);
     }
@@ -85,7 +87,7 @@ class infoStore {
     if (this.isInfoDropdown == false) {
       this.startInfoDropdownHeight = Math.round(e.currentTarget.getBoundingClientRect().top);
       console.log(this.startInfoDropdownHeight);
-      jump('#info-jump');
+      jump('#artwork');
     } else {
       let currentOffset = Math.round(e.currentTarget.getBoundingClientRect().top);
       console.log(currentOffset);

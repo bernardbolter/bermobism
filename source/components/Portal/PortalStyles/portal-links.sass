@@ -5,6 +5,7 @@
   +e(artlink)
     width: 100%
     height: 36px
+    margin-bottom: 15px
 
     a
       font-family: $body-regular
@@ -13,19 +14,35 @@
       font-size: 16px
       line-height: 30px
       color: $art-text-medium
-      margin: 0 0 0 70%
+      margin: 0 0 0 60%
       text-decoration: none
       text-align: center
       display: block
       opacity: 0.4
       width: 101px
       height: 36px
+      background-size: 101px 36px
       background-repeat: no-repeat
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGUAAAAkCAYAAACQePQGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARtJREFUeNrs2tENgjAUheFqeJcNdAPZQObCV+HZkWAD3EA3wAmwJGpqU4hSiiX9T3KDGgPJ/WJzHoxOeZ4IIc6CeJNITiznwCr8yZoVgEJAAYWAAgoBBRQCCgEFFAIKKAQUUAgoBBRQCCigEFBCRmnkVKzCm1Srtm3f7/KiSOXlNfztyH3ucmo5ZTfHLOuu4gNFzxMpUaA27NEaoVQQatOXBlEMSCpQ93rLngdzUxDqPgQrFAPSTkFKQRIX7Ti6jrmJFUoPkvpr2geAoB5HzRQ3nRTFgBRrx93Sy0OlHUeNi4c4RRkoD0toeMZmNEdmR/G44X3VjIJA+WPDG9WMgkRx2PAmaUag2DU8J80IlN8aXvL8yGkzmiMPAQYAWCqHLJfC0mwAAAAASUVORK5CYII=)
       transition: all 300ms ease-in-out
 
       &:hover
         opacity: 0.9
+
+      +min-screen(600px)
+        background-size: 114px 42px
+        width: 114px
+        height: 42px
+        font-size: 20px
+        margin: 0 0 0 65%
+
+      +min-screen(1000px)
+        background-size: 137px 43px
+        width: 137px
+        height: 43px
+        font-size: 26px
+        margin: 0 0 0 70%
+
 
   +e(name-links)
     display: flex
@@ -40,18 +57,34 @@
     display: flex
     flex-direction: column
     justify-content: center
+    margin: 15px 0 0
+
+    +min-screen(1000px)
+      margin: 25px 0 0
 
     p
       font-family: $body-regular
       display: block
       text-transform: uppercase
-      font-size: 24px
+      font-size: 20px
       opacity: 0.4
       margin: 0 0 5px 0
       color: $name
 
-      +min-screen(700px)
+      +min-screen(450px)
+        font-size: 22px
+
+      +min-screen(600px)
+        font-size: 26px
+
+      +min-screen(750px)
         font-size: 30px
+
+      +min-screen(1000px)
+        font-size: 28px
+
+      +min-screen(1250px)
+        font-size: 32px
 
   +e(links)
     display: flex
@@ -61,19 +94,63 @@
     a
       font-family: $body-regular
       text-decoration: none
-      font-size: 14px
+      font-size: 12px
       text-align: right
       letter-spacing: 0.05em
-      margin: 0 0 5px 0
+      margin: 0 0 7px 0
       display: flex
       flex-direction: row
       align-items: center
       justify-content: flex-end
 
-      +min-screen(700px)
+      +min-screen(450px)
+        font-size: 13px
+
+      +min-screen(600px)
+        font-size: 14px
+
+      +min-screen(750px)
+        font-size: 16px
+
+      +min-screen(1000px)
+        font-size: 17px
+
+      +min-screen(1250px)
         font-size: 18px
 
       span
+        display: inline-block
+        margin: -2px 0 0 7px
+        opacity: 0.7
+        width: 10px
+        height: 10px
+        background-size: 10px 10px
+        background-repeat: no-repeat
+
+        +min-screen(600px)
+          margin: -2px 0 0 7px
+          width: 11px
+          height: 11px
+          background-size: 11px 11px
+
+        +min-screen(750px)
+          margin: -2px 0 0 7px
+          width: 12px
+          height: 12px
+          background-size: 12px 12px
+
+        +min-screen(1000px)
+          margin: -1px 0 0 7px
+          width: 13px
+          height: 13px
+          background-size: 13px 13px
+
+        +min-screen(1250px)
+          margin: -1px 0 0 7px
+          width: 14px
+          height: 14px
+          background-size: 14px 14px
+
         &:hover
           opacity: 1
 
@@ -84,14 +161,7 @@
           opacity: 1
 
       span
-        display: inline-block
-        margin: 0 0 0 5px
-        opacity: 0.7
-        width: 13px
-        height: 13px
-        background-repeat: no-repeat
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAiJJREFUeNpMkr1rVEEUxe/Mm/dmZt/XvoSsSgo7QUgpKey0TCy0shILKxWM2AQrFS2CVlaSFHaCXQhoabAJ6t9go0g0bnY3u5u372vmzjhmYfVOdzk/ztxzL9l88wwOewcQhxkIySFgAij1QGnt+r8gnCMvw5TeQ7TQ5PRJwhcfM5gVAeueRgXgADQ6bJ+iu35olqvcfvY80pJt/aguBmIGEULBWguT+ggQATzKrIzsMqmT1/WovKWwgfYC/wJsvP6f07SMIeD7HqA2Rd6jJItDEIKCmXigG9znMQE6U1v3PQcELbMuUzUQWfUjiuVV3w9gNBwB43hdpnjNNnyPuVFOxMYY8CP1nnK9Uk/oV495Z4MQt/sHPUKCejXs4NumpvukTK5Qox3kXERW7lIxWanGwXN1LM/lfcrHPSMMy2/MLXrvqOG/63605AyG7G+86Wn4wCO8NOrSh54KN5KOOqxq/IbK7oUxrHkk+mkn2RLY4yFQdCsRxVaS+ZebUeupzuWGbEmoCnxBmLkgY7JW5nYH8/i8z+SRJXqa9NbOA4u1/6kZyYuWKDefdV0LYdIS2pRJPqy67XQeJI+hP+i6A5DT9AghUDZjqFUFTOL9aAG/WwQsc91F2wCZqmZBM1OKVzxRt9MO+4gK81aqV3VDFbFeO0s6h2iak7OyVv+DiI7ujAddEyb+3cAtsczNtsr5zTML88dcBFDVBRRV4SAzg/4IMADXjw3KDu84JwAAAABJRU5ErkJggg==)
-
 
     +m(dcs)
       color: $travel
@@ -100,12 +170,6 @@
           opacity: 1
 
       span
-        display: inline-block
-        margin: 0 0 0 5px
-        opacity: 0.7
-        width: 13px
-        height: 13px
-        background-repeat: no-repeat
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAiJJREFUeNpMkbtrVEEUxr85M/fOfWx2N9lkA8FAChGElJLCTktjoZWVWFipYOyClYogQVFIJVhY24WAlgab4OOfUKOJ7sO92dx93L1zZ8bZ+EgOUwxn5vedc77Dnq1votnsoFIJIYMIUgoQZyiUQqORwJez6zKo3TZGw+jkwfQU7gscC2sBpTSYMtDaxGE0v0W8uqRU8oFIRMRn76X9TvAfImIOMkhTp2gKCMEs48GS9Lsve2nreuaEShNzH0d5vHqsEhvXckc7QDowHxi1w8pxjCj03WsPpsh2iZdAR0DhAOPmKa+SqHdAc9/i0uQl3/PQ7SbuS3yFvPplov42/QPGg1o284aJ2TWt8zbnrA6qbrR+JShMvMy9hVe6GO5K3rlI1roKzLVFJ7aUrlyAaTwmNE/l2a7MBt+DXEVX44mTr4VQDbI7ixbFvnCKkOHCW8Zr5/Lh57uhHKwJf6FlkH+BzbZlML0ipd6TorXYy/W+tSGo0OUXYVQ/z7H3kNBeC8MQeX7wBPDPCG9yReXJpket04GkxFh+aBZ79PSTZTZ9z8zPs9olx7ZbS4jjimsN5X4vadZqE4cOttsdBEEAsmOSMfQHGqNR4e7lO56c/wq33lF20Cy0M8rSn3X8DSHQfc54/UYY453Wqsf9mWVrhoqYqdamSq1CW3C3eGOOQb43uNlNf5ggqt0iweBm2OBoXZusT6e+jJBlGQbDkWv5CPotwABopwIk3gVxywAAAABJRU5ErkJggg==)
 
     +m(pullup)
@@ -115,12 +179,6 @@
           opacity: 1
 
       span
-        display: inline-block
-        margin: 0 0 0 5px
-        opacity: 0.7
-        width: 13px
-        height: 13px
-        background-repeat: no-repeat
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAkdJREFUeNpEkr1PFEEYxt/Z2dnv22PvjgOihIBGw0epFHZYioVWNBoLKzURu4uVGhuilZWJMSZa2RELS4kNUf8CNZocAncCd8vtsXuzuzezM+6BhKeZZGZ+87zzPi96XbsB7eYmOOUxMDQCxDABEw0Y49DerkOB7b+ws4P7QiJIjPIT5+zFxyocCyEAKSBjKWQiX3nf9lhrzUja87FR+YpBWFa49Yj9LRjqCaPkTAbUb0EGOHfTpcPpvBiZfkO5epunFDzX+Ka0ftdOnA7J/D2kAkG5k+A0sCeQV54EI+oCJTZw2myYIEE5ui1BYhWkgkHvBzUr2t63/B9bBQNfI7oJ3bAHJA2W7KhxPXOq6+oAEAoBISToB/WPONy8kuilX1jVJrS4tervFhAOdxbdfvN9SpyGqM5cVQflDMqy29/XcNhYoENTz5gzWuO0C1glOvgbNytp4x1yKru0PDOnqyRQ8wPw4u1PpggXOu7kQxg+t1Ls/GwltLOREWfdTHaWsTfWZOPzczKKAtSPQcF+/ZUre5fj6uzT1JtaMXUdEiDPMUsuWKy7HBP3Q786O61ZbgfS3mE06O3SlGRW5UtcPn9psCnloC8ZOBo2Mhq4IYO9oeFTYBRL4O80wLTsQfcQKHlGaWcXWByBlvgPimH9j1DUjEqyJ5IeIMGPwv8vlRfHX5rh5h1PY5+5RJGd+ouc2EwhxpA35rWy3F3JoxCcn0CyNHE3iPZFgffuafkY5X9YTUtnbo2OnA51okJCI4jD4HBajvVPgAEAeXsSjzExxUgAAAAASUVORK5CYII=)
 
     +m(smooth)
@@ -130,10 +188,4 @@
           opacity: 1
 
       span
-        display: inline-block
-        margin: 0 0 0 5px
-        opacity: 0.7
-        width: 13px
-        height: 13px
-        background-repeat: no-repeat
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjFJREFUeNpMkrtrVEEUxs+Z+5j72s3NLlk10VgYETWlpLCLbSy0shILKxXUysVKRZCglZVgkUIbu2BhmWAT1D9ABAWjiRuSu8nuzT7u3bnzclzZ6Adnihl+5/GdwZWlJ5A2t4FG4xD4FGzXAyQWFFxAp7kFR8vk+ZHIui2khmSAj/Jw8qEN/0trkIKDAgFainCmYq/WPDW3k6uPjkWC46F88Iu3vQMIkQwh1U+hMFnRsnVY0nPbsrTUyPLrmhcgK96nKunV/0F/Cpng5vAcYkCVfU0R3TgAhyJ0JIFcqEbFRyAjgGsEYaJKdX06VK0TIduslPxLtkOhtd+BMUddMfeX29JdI0NAISil4JjH3pm+FwdC7QKxahOeWk73mhBbbGE25m+6TDUaPLpocwVmcISTEVutWXx+PXOe7hZOnYgBWLag48iuzkw4r3KgO1/69iyhmNpmYjhTxZVJX85/buH9FgSLZ2PZFEz/6Au5NhngHUaCrfVibFboXlpCBeSQk72cKrsXvuX+4waji4HvQ5qLZx5R52oGSPr67UYRnkbXb7vAh2bh5ut7us2tD98z77yDZkemXWKejAkekYNyszNIorgKthdBupcA9QMgemgfAWRdUAWDCpV3T8XqJ5co232eWKoAC/+uYyQ74e6L6UDcwIr9vhCqNxWphR5HLokVe+O1JpHc5CRDdw+gfR3e3Eh3Va3k3CKUQJLJ5c2Bfy0+XO2G1AXGchBZb/hbRvotwACg9w7VLtfSFAAAAABJRU5ErkJggg==)

@@ -27,7 +27,7 @@ export default class Info extends React.Component {
             closeInfo } = this.props.info;
 
     return (
-        <section className="info" id="info-jump" ref="jump">
+        <section className="info" id="artwork">
 
           <div className="info-wrapper">
           {/*  INFO eMAIL SIGNUP  */}

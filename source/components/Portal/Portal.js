@@ -23,7 +23,7 @@ export default class Portal extends React.Component {
 
   triggerScroll = (e) => {
     e.preventDefault();
-    jump('#info-jump');
+    jump('#artwork');
   }
 
   lettersHover(text, e) {

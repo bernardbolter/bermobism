@@ -2,22 +2,30 @@
   width: 100%
   background: $art-nav-back
   display: flex
-  flex-direction: row
+  flex-direction: column
   justify-content: flex-start
   transition: 1s ease-in-out all
   z-index: 1
-  top: -122px
+  top: -349px
   position: relative
+
+  +min-screen(700px)
+    flex-direction: row
+    top: -122px
 
 .allart-dropdown-open
   top: 0
 
 .allart-sort
-  width: 200px
-  margin: 0 10px 10px 5%
+  width: 90%
+  margin: 10px 5%
   display: flex
   flex-direction: column
   justify-content: flex-start
+
+  +min-screen(700px)
+    width: 200px
+    margin: 0 10px 10px 5%
 
   input[type=text]
     outline: none
@@ -58,16 +66,26 @@
 
 .allart-filter
   display: flex
-  flex-direction: row
+  flex-direction: column
   justify-content: flex-end
-  margin: 7px 0 10px
+  margin: -89px 0 20px 6%
+
+  +min-screen(700px)
+    flex-direction: row
+    margin: 7px 0 10px
 
 .allart-filter-all
   display: flex
-  flex-direction: column
+  flex-direction: row
   justify-content: flex-start
-  width: 70px
-  margin: 0 30px 0 0
+  width: auto
+  margin: 0 0 15px 0
+
+  +min-screen(700px)
+    flex-direction: column
+    justify-content: flex-start
+    width: 70px
+    margin: 0 30px 0 0
 
   p
     font-size: 12px
@@ -82,13 +100,17 @@
   position: relative
   display: block
   cursor: pointer
-  font-size: 12px
+  font-size: 14px
   font-family: $body
-  margin: 0 0 10px 0
+  margin: 0 0 15px 0
   cursor: pointer
   color: $art-text-medium
   opacity: 0.7
   align-self: flex-end
+
+  +min-screen(700px)
+    font-size: 12px
+    margin: 0 0 10px 0
 
   input
     opacity: 0
@@ -116,13 +138,19 @@
     background-color: $check-light
 
 .check-all
-  margin: 8px 0 0 0
+  margin: 0 0 3px 10px
+
+  +min-screen(700px)
+    margin: 8px 0 0 0
 
 .allart-filter-column
   display: flex
   flex-direction: column
   width: 200px
-  margin: 5px 0 0 0
+  margin: 0
+
+  +min-screen(700px)
+    margin: 5px 0 0 0
 
 .allart-label-filter
   height: 10px
@@ -130,11 +158,15 @@
   position: relative
   display: block
   cursor: pointer
-  font-size: 12px
+  font-size: 14px
   font-family: $body
-  margin: 0 0 10px 0
+  margin: 0 0 16px 0
   cursor: pointer
   color: $art-text-medium
+
+  +min-screen(700px)
+    font-size: 12px
+    margin: 0 0 10px 0
 
   input
     opacity: 0

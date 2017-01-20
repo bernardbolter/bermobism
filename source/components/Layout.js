@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Portal from './Portal/Portal';
-import portal from './Portal/portalStore';
 
 import Info from './Info/Info';
 import information from './Info/infoStore';
@@ -15,7 +14,7 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div className="container">
-        <Portal portal={portal} />
+        <Portal />
         <Info info={information} />
         <AllArt artwork={artwork} ref="artworkComponent"/>
       </div>
