@@ -24,7 +24,7 @@ export default class Info extends React.Component {
             closeInfo } = this.props.info;
 
     return (
-        <section className="info" id="artwork">
+        <section className={isInfoDropdown ? 'info info-open' : 'info'} id="artwork">
 
           <div className="info-wrapper">
           {/*  INFO eMAIL SIGNUP  */}
