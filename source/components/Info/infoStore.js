@@ -95,11 +95,9 @@ class infoStore {
     console.log('value: ', e.currentTarget.id);
     if (this.isInfoDropdown == false) {
       this.startInfoDropdownHeight = Math.round(e.currentTarget.getBoundingClientRect().top);
-      console.log(this.startInfoDropdownHeight);
       jump('#artwork');
     } else {
       let currentOffset = Math.round(e.currentTarget.getBoundingClientRect().top);
-      console.log(currentOffset);
       if (currentOffset == 51) {
         jump(-this.startInfoDropdownHeight);
       }

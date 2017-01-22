@@ -8,7 +8,7 @@ export default class Artwork extends React.Component {
   render() {
     return (
         <li className='artwork-item'>
-          <a href={this.props.link}>
+          <a href={this.props.link} target="_blank">
           <img src={this.props.imageMedium} alt={this.props.title.rendered} />
           <div className="artwork-info-wrap">
             <div className={this.artworkColor()}></div>
